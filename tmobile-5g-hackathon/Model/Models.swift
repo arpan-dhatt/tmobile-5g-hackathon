@@ -5,7 +5,7 @@
 //  Created by Arpan Dhatt on 5/13/21.
 //
 
-import Foundation
+import UIKit
 
 struct Ambulance: Decodable {
     var _id: String
@@ -15,4 +15,15 @@ struct Ambulance: Decodable {
     var latitude: Float
     var arriving_in: String
     var stream_urls: [String]
+}
+
+struct DataPoint<T> {
+    var time_ms: Int64
+    var value: T
+}
+
+struct TransferredFile {
+    var time_ms: Int64
+    var type: String
+    var images: [UIImage]
 }

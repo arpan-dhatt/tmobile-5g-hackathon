@@ -15,6 +15,7 @@
 		78CF67C6264DC83F009DFE03 /* AmbulanceListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C5264DC83F009DFE03 /* AmbulanceListDataSource.swift */; };
 		78CF67C9264DC88A009DFE03 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C8264DC88A009DFE03 /* NetworkModels.swift */; };
 		78CF67CB264DC8CA009DFE03 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CA264DC8CA009DFE03 /* Models.swift */; };
+		78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CC264DD293009DFE03 /* RealtimeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		78CF67C5264DC83F009DFE03 /* AmbulanceListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceListDataSource.swift; sourceTree = "<group>"; };
 		78CF67C8264DC88A009DFE03 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 		78CF67CA264DC8CA009DFE03 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		78CF67CC264DD293009DFE03 /* RealtimeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				78CF67C3264DC817009DFE03 /* NetConfig.swift */,
 				78CF67C5264DC83F009DFE03 /* AmbulanceListDataSource.swift */,
+				78CF67CC264DD293009DFE03 /* RealtimeDataSource.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			files = (
 				78CF67C9264DC88A009DFE03 /* NetworkModels.swift in Sources */,
 				78CF67B6264DC1C2009DFE03 /* ContentView.swift in Sources */,
+				78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
 				78CF67CB264DC8CA009DFE03 /* Models.swift in Sources */,
 				78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */,
