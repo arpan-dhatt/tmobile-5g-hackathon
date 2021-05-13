@@ -26,10 +26,10 @@ struct GET_ambulances_Response_item: Decodable {
 // WS /ambulance_data?ambulance_id=3342342342342423 VITALS_UPDATE
 struct WS_VITALS_UPDATE: Decodable {
     var time_ms: Int64
-    var ekg_value: Float
-    var blood_oxygen_percent: Int
-    var diastolic_blood_pressure: Int
-    var systolic_blood_pressure: Int
+    var ekg_value: Float?
+    var blood_oxygen_percent: Int?
+    var diastolic_blood_pressure: Int?
+    var systolic_blood_pressure: Int?
 }
 
 // WS /ambulance_data?ambulance_id=3342342342342423 NEW_FILE

@@ -101,10 +101,10 @@ class RealtimeDataSource: ObservableObject {
     }
     
     func VITALS_UPDATE_Handler(data: WS_VITALS_UPDATE) {
-        self.ekg_value_history.append(DataPoint(time_ms: data.time_ms, value: data.ekg_value))
-        self.blood_oxygen_percent_history.append(DataPoint(time_ms: data.time_ms, value: data.blood_oxygen_percent))
-        self.diastolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: data.diastolic_blood_pressure))
-        self.systolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: data.systolic_blood_pressure))
+        if let ekg_value = data.ekg_value { self.ekg_value_history.append(DataPoint(time_ms: data.time_ms, value: ekg_value)) }
+        if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(DataPoint(time_ms: data.time_ms, value: blood_oxygen_percent)) }
+        if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: diastolic_blood_pressure)) }
+        if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: systolic_blood_pressure)) }
     }
     
     func NEW_FILE_Handler(data: WS_NEW_FILE) {
