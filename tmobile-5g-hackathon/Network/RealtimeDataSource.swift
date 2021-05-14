@@ -136,4 +136,14 @@ class RealtimeDataSource: ObservableObject {
             }
         }
     }
+    
+    func demoVitalsData() {
+        for i in 0...20 {
+            ekg_value_history.append(DataPoint(time_ms: Int64(i), value: Float.random(in: -10...10)))
+            heart_rate_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 170...190)))
+            blood_oxygen_percent_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 95...100)))
+            diastolic_blood_pressure_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 130...160)))
+            systolic_blood_pressure_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 60...90)))
+        }
+    }
 }
