@@ -12,6 +12,10 @@ class AmbulanceListDataSource : ObservableObject {
     
     @Published var items = [Ambulance]()
     
+    public func getItemsSize() -> Int {
+        return items.count
+    }
+    
     private func formURL() -> URL {
         return URL(string: NetConfig.URL_ROOT+"ambulances")!
     }
@@ -62,4 +66,5 @@ class AmbulanceListDataSource : ObservableObject {
             Ambulance(_id: "1lkja31j12lkj31", name: "Demo Five", going_to: "scene", longitude: 34.23223, latitude: -23.234433, arriving_in: "Unknown", stream_urls: [])
         ]
     }
+    
 }
