@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7809B528264F011300ACDD31 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7809B527264F011300ACDD31 /* SwiftUICharts */; };
 		78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */; };
 		78CF67B6264DC1C2009DFE03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67B5264DC1C2009DFE03 /* ContentView.swift */; };
 		78CF67B8264DC1C3009DFE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CF67B7264DC1C3009DFE03 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7809B528264F011300ACDD31 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = "tmobile-5g-hackathon";
+			packageProductDependencies = (
+				7809B527264F011300ACDD31 /* SwiftUICharts */,
+			);
 			productName = "tmobile-5g-hackathon";
 			productReference = 78CF67B0264DC1C2009DFE03 /* tmobile-5g-hackathon.app */;
 			productType = "com.apple.product-type.application";
@@ -172,6 +177,9 @@
 				Base,
 			);
 			mainGroup = 78CF67A7264DC1C2009DFE03;
+			packageReferences = (
+				7809B526264F011300ACDD31 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 78CF67B1264DC1C2009DFE03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -400,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7809B526264F011300ACDD31 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7809B527264F011300ACDD31 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7809B526264F011300ACDD31 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 78CF67A8264DC1C2009DFE03 /* Project object */;
 }
