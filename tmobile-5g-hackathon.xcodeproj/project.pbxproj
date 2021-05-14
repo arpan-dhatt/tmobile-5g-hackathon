@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F144EDE264F0DFE00CD3957 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */; };
 		78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */; };
 		78CF67B6264DC1C2009DFE03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67B5264DC1C2009DFE03 /* ContentView.swift */; };
 		78CF67B8264DC1C3009DFE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CF67B7264DC1C3009DFE03 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		78CF67B0264DC1C2009DFE03 /* tmobile-5g-hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tmobile-5g-hackathon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tmobile_5g_hackathonApp.swift; sourceTree = "<group>"; };
 		78CF67B5264DC1C2009DFE03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 		78CF67B2264DC1C2009DFE03 /* tmobile-5g-hackathon */ = {
 			isa = PBXGroup;
 			children = (
-				78CF67D0264E1FF5009DFE03 /* ViewModels */,
 				78CF67C7264DC85D009DFE03 /* Models */,
 				78CF67C2264DC7BA009DFE03 /* Network */,
 				78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */,
@@ -118,15 +119,9 @@
 			children = (
 				78CF67C8264DC88A009DFE03 /* NetworkModel.swift */,
 				78CF67CA264DC8CA009DFE03 /* Model.swift */,
+				4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		78CF67D0264E1FF5009DFE03 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +198,7 @@
 				78CF67DA264E206C009DFE03 /* SmallVitalsView.swift in Sources */,
 				78CF67B6264DC1C2009DFE03 /* ContentView.swift in Sources */,
 				78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */,
+				4F144EDE264F0DFE00CD3957 /* MainViewModel.swift in Sources */,
 				78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
 				78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */,
