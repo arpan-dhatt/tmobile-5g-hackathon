@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AmbulanceListDataSource : ObservableObject {
-    var demoData = false
+    var demoData = true
     
     @Published var items = [Ambulance]()
     
