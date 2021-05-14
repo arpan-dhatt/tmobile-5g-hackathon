@@ -13,10 +13,16 @@
 		78CF67BB264DC1C3009DFE03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78CF67BA264DC1C3009DFE03 /* Preview Assets.xcassets */; };
 		78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C3264DC817009DFE03 /* NetConfig.swift */; };
 		78CF67C6264DC83F009DFE03 /* AmbulanceListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C5264DC83F009DFE03 /* AmbulanceListDataSource.swift */; };
-		78CF67C9264DC88A009DFE03 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C8264DC88A009DFE03 /* NetworkModels.swift */; };
-		78CF67CB264DC8CA009DFE03 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CA264DC8CA009DFE03 /* Models.swift */; };
+		78CF67C9264DC88A009DFE03 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67C8264DC88A009DFE03 /* NetworkModel.swift */; };
+		78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CA264DC8CA009DFE03 /* Model.swift */; };
 		78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CC264DD293009DFE03 /* RealtimeDataSource.swift */; };
 		78CF67CF264DDE94009DFE03 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67CE264DDE94009DFE03 /* Microphone.swift */; };
+		78CF67D2264E201D009DFE03 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D1264E201D009DFE03 /* VideoView.swift */; };
+		78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D3264E202C009DFE03 /* SmallMapView.swift */; };
+		78CF67D6264E2035009DFE03 /* AmbulanceSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D5264E2035009DFE03 /* AmbulanceSelectorView.swift */; };
+		78CF67D8264E2056009DFE03 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D7264E2056009DFE03 /* MainView.swift */; };
+		78CF67DA264E206C009DFE03 /* SmallVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */; };
+		78CF67DC264E20A1009DFE03 /* TransferredFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +34,16 @@
 		78CF67BC264DC1C3009DFE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78CF67C3264DC817009DFE03 /* NetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConfig.swift; sourceTree = "<group>"; };
 		78CF67C5264DC83F009DFE03 /* AmbulanceListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceListDataSource.swift; sourceTree = "<group>"; };
-		78CF67C8264DC88A009DFE03 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
-		78CF67CA264DC8CA009DFE03 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		78CF67C8264DC88A009DFE03 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		78CF67CA264DC8CA009DFE03 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		78CF67CC264DD293009DFE03 /* RealtimeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDataSource.swift; sourceTree = "<group>"; };
 		78CF67CE264DDE94009DFE03 /* Microphone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
+		78CF67D1264E201D009DFE03 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		78CF67D3264E202C009DFE03 /* SmallMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallMapView.swift; sourceTree = "<group>"; };
+		78CF67D5264E2035009DFE03 /* AmbulanceSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceSelectorView.swift; sourceTree = "<group>"; };
+		78CF67D7264E2056009DFE03 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVitalsView.swift; sourceTree = "<group>"; };
+		78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferredFilesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +76,20 @@
 		78CF67B2264DC1C2009DFE03 /* tmobile-5g-hackathon */ = {
 			isa = PBXGroup;
 			children = (
-				78CF67C7264DC85D009DFE03 /* Model */,
+				78CF67D0264E1FF5009DFE03 /* ViewModels */,
+				78CF67C7264DC85D009DFE03 /* Models */,
 				78CF67C2264DC7BA009DFE03 /* Network */,
 				78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */,
 				78CF67B5264DC1C2009DFE03 /* ContentView.swift */,
 				78CF67B7264DC1C3009DFE03 /* Assets.xcassets */,
 				78CF67BC264DC1C3009DFE03 /* Info.plist */,
 				78CF67B9264DC1C3009DFE03 /* Preview Content */,
+				78CF67D1264E201D009DFE03 /* VideoView.swift */,
+				78CF67D3264E202C009DFE03 /* SmallMapView.swift */,
+				78CF67D5264E2035009DFE03 /* AmbulanceSelectorView.swift */,
+				78CF67D7264E2056009DFE03 /* MainView.swift */,
+				78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */,
+				78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */,
 			);
 			path = "tmobile-5g-hackathon";
 			sourceTree = "<group>";
@@ -94,13 +113,20 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		78CF67C7264DC85D009DFE03 /* Model */ = {
+		78CF67C7264DC85D009DFE03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				78CF67C8264DC88A009DFE03 /* NetworkModels.swift */,
-				78CF67CA264DC8CA009DFE03 /* Models.swift */,
+				78CF67C8264DC88A009DFE03 /* NetworkModel.swift */,
+				78CF67CA264DC8CA009DFE03 /* Model.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78CF67D0264E1FF5009DFE03 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,14 +198,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78CF67C9264DC88A009DFE03 /* NetworkModels.swift in Sources */,
+				78CF67C9264DC88A009DFE03 /* NetworkModel.swift in Sources */,
+				78CF67D8264E2056009DFE03 /* MainView.swift in Sources */,
+				78CF67DA264E206C009DFE03 /* SmallVitalsView.swift in Sources */,
 				78CF67B6264DC1C2009DFE03 /* ContentView.swift in Sources */,
 				78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */,
+				78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
-				78CF67CB264DC8CA009DFE03 /* Models.swift in Sources */,
+				78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */,
 				78CF67CF264DDE94009DFE03 /* Microphone.swift in Sources */,
+				78CF67D2264E201D009DFE03 /* VideoView.swift in Sources */,
 				78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */,
 				78CF67C6264DC83F009DFE03 /* AmbulanceListDataSource.swift in Sources */,
+				78CF67D6264E2035009DFE03 /* AmbulanceSelectorView.swift in Sources */,
+				78CF67DC264E20A1009DFE03 /* TransferredFilesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
