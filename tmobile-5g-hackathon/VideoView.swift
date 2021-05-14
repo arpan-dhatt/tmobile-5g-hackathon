@@ -9,17 +9,24 @@ import SwiftUI
 import AVKit
 
 struct VideoView: View {
-    var videos: [URL]?
+    private var models = [PlayerViewModel]()
+    init(videos: [URL]?) {
+        if let videos = videos {
+            for video in videos {
+                models.append(PlayerViewModel(url: video))
+            }
+        }
+    }
     var body: some View {
-        if videos?.count == 4 {
+        if models.count == 4 {
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
-                    VideoPlayer(player: playingAVPlayer(url: videos![0]))
-                    VideoPlayer(player: playingAVPlayer(url: videos![1]))
+                    PlayerContainerView(player: models[0].player, gravity: .aspectFill)
+                    PlayerContainerView(player: models[1].player, gravity: .aspectFill)
                 }
                 VStack(spacing: 0) {
-                    VideoPlayer(player: playingAVPlayer(url: videos![2]))
-                    VideoPlayer(player: playingAVPlayer(url: videos![3]))
+                    PlayerContainerView(player: models[2].player, gravity: .aspectFill)
+                    PlayerContainerView(player: models[3].player, gravity: .aspectFill)
                 }
             }
             
@@ -42,4 +49,100 @@ func playingAVPlayer(url: URL) -> AVPlayer {
     let player = AVPlayer(url: url)
     player.play()
     return player
+}
+
+enum PlayerGravity {
+    case aspectFill
+    case resize
+}
+
+class PlayerView: UIView {
+    
+    var player: AVPlayer? {
+        get {
+            return playerLayer.player
+        }
+        set {
+            playerLayer.player = newValue
+        }
+    }
+    
+    let gravity: PlayerGravity
+    
+    init(player: AVPlayer, gravity: PlayerGravity) {
+        self.gravity = gravity
+        super.init(frame: .zero)
+        self.player = player
+        self.backgroundColor = .black
+        setupLayer()
+    }
+    
+    func setupLayer() {
+        switch gravity {
+    
+        case .aspectFill:
+            playerLayer.contentsGravity = .resizeAspectFill
+            playerLayer.videoGravity = .resizeAspectFill
+            
+        case .resize:
+            playerLayer.contentsGravity = .resize
+            playerLayer.videoGravity = .resize
+            
+        }
+    }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var playerLayer: AVPlayerLayer {
+        return layer as! AVPlayerLayer
+    }
+    
+    // Override UIView property
+    override static var layerClass: AnyClass {
+        return AVPlayerLayer.self
+    }
+}
+
+final class PlayerContainerView: UIViewRepresentable {
+    typealias UIViewType = PlayerView
+    
+    let player: AVPlayer
+    let gravity: PlayerGravity
+    
+    init(player: AVPlayer, gravity: PlayerGravity) {
+        self.player = player
+        self.gravity = gravity
+    }
+    
+    func makeUIView(context: Context) -> PlayerView {
+        return PlayerView(player: player, gravity: gravity)
+    }
+    
+    func updateUIView(_ uiView: PlayerView, context: Context) { }
+}
+
+class PlayerViewModel: ObservableObject {
+
+    let player: AVPlayer
+    
+    init(url: URL) {
+        self.player = AVPlayer(playerItem: AVPlayerItem(url: url))
+        self.play()
+    }
+    
+    func play() {
+        let currentItem = player.currentItem
+        if currentItem?.currentTime() == currentItem?.duration {
+            currentItem?.seek(to: .zero, completionHandler: nil)
+        }
+        
+        player.play()
+    }
+    
+    func pause() {
+        player.pause()
+    }
+    
 }
