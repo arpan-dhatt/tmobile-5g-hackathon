@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SmallVitalsView: View {
+    var animation: Namespace.ID?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello how are you doing").frame(width: 200, height: 200).background(Color.purple).clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous)).matchedGeometryEffect(id: "VitalsView", in: animation!)
     }
 }
 

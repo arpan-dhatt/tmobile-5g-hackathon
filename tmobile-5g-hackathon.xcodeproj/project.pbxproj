@@ -23,6 +23,7 @@
 		78CF67D8264E2056009DFE03 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D7264E2056009DFE03 /* MainView.swift */; };
 		78CF67DA264E206C009DFE03 /* SmallVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */; };
 		78CF67DC264E20A1009DFE03 /* TransferredFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */; };
+		78CF67DE264E3320009DFE03 /* LargeVitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67DD264E3320009DFE03 /* LargeVitalsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		78CF67D7264E2056009DFE03 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVitalsView.swift; sourceTree = "<group>"; };
 		78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferredFilesView.swift; sourceTree = "<group>"; };
+		78CF67DD264E3320009DFE03 /* LargeVitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeVitalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				78CF67D7264E2056009DFE03 /* MainView.swift */,
 				78CF67D9264E206C009DFE03 /* SmallVitalsView.swift */,
 				78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */,
+				78CF67DD264E3320009DFE03 /* LargeVitalsView.swift */,
 			);
 			path = "tmobile-5g-hackathon";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
 				78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */,
+				78CF67DE264E3320009DFE03 /* LargeVitalsView.swift in Sources */,
 				78CF67CF264DDE94009DFE03 /* Microphone.swift in Sources */,
 				78CF67D2264E201D009DFE03 /* VideoView.swift in Sources */,
 				78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */,

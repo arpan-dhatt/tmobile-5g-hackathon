@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct MainView: View {
+    @Namespace private var animation
+    @State private var vitalViewExpanded = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if vitalViewExpanded {
+                Text("jkjlkljkl")
+                    .frame(width: 400, height: 400).background(RoundedRectangle(cornerRadius: 25.0, style: .continuous).fill(Color.blue).matchedGeometryEffect(id: "VitalsView", in: animation)).onTapGesture {
+                        withAnimation {
+                            vitalViewExpanded.toggle()
+                        }
+                    }
+            }
+            if !vitalViewExpanded {
+                HStack {
+                    Spacer()
+                    VStack {
+                        
+                        Text("").frame(width: 200, height: 200).background(RoundedRectangle(cornerRadius: 25.0, style: .continuous).fill(Color.blue).matchedGeometryEffect(id: "VitalsView", in: animation)).onTapGesture {
+                            withAnimation {
+                                vitalViewExpanded.toggle()
+                            }
+                        }
+                        Spacer()
+                    }
+                }
+            }
+        }
     }
 }
 
