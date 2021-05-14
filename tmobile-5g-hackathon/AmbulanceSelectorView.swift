@@ -37,14 +37,14 @@ struct AmbulanceSelectorView: View {
                         }
                     }
                 }
-                if viewModel.currentAmbulance.name != "none"{
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    HStack{
-                        
-                        Text("Get Started").font(.title).foregroundColor(.white)
-                        
-                    }.padding().padding(.horizontal).background(Color.green).cornerRadius(10.0).padding(.bottom).padding()
-                })
+                if viewModel.currentAmbulance != nil{
+                    Button(action: {}, label: {
+                        HStack{
+                            
+                            Text("Get Started").font(.title).foregroundColor(.white)
+                            
+                        }.padding().padding(.horizontal).background(Color.green).cornerRadius(10.0).padding(.bottom).padding()
+                    })
                 }
             }.padding().background(Color.pink).cornerRadius(25.0).padding(50)
         }.onAppear{
@@ -62,38 +62,38 @@ struct AmbulanceInfoCardView: View {
     var ambulance: Ambulance
     
     var body: some View {
-        if viewModel.currentAmbulance.name == name{
-        VStack(alignment: .leading){
-            HStack{
-                Text("Ambulance: "+name).font(.headline)
-                Spacer()
-                if status == "inactive"{
-                    Circle().fill(Color.red).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
-                }
-                else if status == "trauma center"{
-                    Circle().fill(Color.green).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
-                }
-                else{
-                    Circle().fill(Color.yellow).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
-                }
-            }.padding(.bottom, -15)
-            
-            
+        if viewModel.currentAmbulance?.name == name{
+            VStack(alignment: .leading){
+                HStack{
+                    Text("Ambulance: "+name).font(.headline)
+                    Spacer()
+                    if status == "inactive"{
+                        Circle().fill(Color.red).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
+                    }
+                    else if status == "trauma center"{
+                        Circle().fill(Color.green).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
+                    }
+                    else{
+                        Circle().fill(Color.yellow).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
+                    }
+                }.padding(.bottom, -15)
                 
-            
-            if status == "trauma center" {
-                Divider().background(Color.green)
-            }
-            else if status == "inactive" {
-                Divider().background(Color.red)
-            }
-            else {
-                Divider().background(Color.yellow)
-            }
-            
-            Text("En Route To: "+status).font(.headline).padding(.top, 10)
-            Text("Arriving In: "+estimatedArrival).font(.headline)
-        }.padding().padding(.horizontal).cornerRadius(10.0).frame(maxHeight: 300).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.green, lineWidth: 3)).padding()
+                
+                
+                
+                if status == "trauma center" {
+                    Divider().background(Color.green)
+                }
+                else if status == "inactive" {
+                    Divider().background(Color.red)
+                }
+                else {
+                    Divider().background(Color.yellow)
+                }
+                
+                Text("En Route To: "+status).font(.headline).padding(.top, 10)
+                Text("Arriving In: "+estimatedArrival).font(.headline)
+            }.padding().padding(.horizontal).cornerRadius(10.0).frame(maxHeight: 300).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.green, lineWidth: 3)).padding()
         }
         else {
             VStack(alignment: .leading){
