@@ -11,7 +11,7 @@ import SwiftUI
 struct tmobile_5g_hackathonApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(MainViewModel())
         }
     }
 }
