@@ -17,6 +17,15 @@ class RealtimeDataSource: ObservableObject {
         }
     }
     
+    @Published var heart_rate_history = [DataPoint<Int>]()
+    var heart_rate: Int {
+        if let item = heart_rate_history.last {
+            return item.value
+        } else {
+            return 0;
+        }
+    }
+    
     @Published var blood_oxygen_percent_history = [DataPoint<Int>]()
     var blood_oxygen_percent: Int {
         if let item = blood_oxygen_percent_history.last {
@@ -102,6 +111,7 @@ class RealtimeDataSource: ObservableObject {
     
     func VITALS_UPDATE_Handler(data: WS_VITALS_UPDATE) {
         if let ekg_value = data.ekg_value { self.ekg_value_history.append(DataPoint(time_ms: data.time_ms, value: ekg_value)) }
+        if let heart_rate = data.heart_rate { self.heart_rate_history.append(DataPoint(time_ms: data.time_ms, value: heart_rate)) }
         if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(DataPoint(time_ms: data.time_ms, value: blood_oxygen_percent)) }
         if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: diastolic_blood_pressure)) }
         if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: systolic_blood_pressure)) }

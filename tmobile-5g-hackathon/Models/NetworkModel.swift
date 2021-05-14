@@ -27,6 +27,7 @@ struct GET_ambulances_Response_item: Decodable {
 struct WS_VITALS_UPDATE: Decodable {
     var time_ms: Int64
     var ekg_value: Float?
+    var heart_rate: Int?
     var blood_oxygen_percent: Int?
     var diastolic_blood_pressure: Int?
     var systolic_blood_pressure: Int?
