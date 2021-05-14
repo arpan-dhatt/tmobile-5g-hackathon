@@ -9,7 +9,11 @@ import SwiftUI
 import AVKit
 
 struct VideoView: View {
+    @Namespace private var animation
     private var models = [PlayerViewModel]()
+    @State private var selectedIndex: Int?
+    @State private var selectedPlayerViewModel: PlayerViewModel?
+    
     init(videos: [URL]?) {
         if let videos = videos {
             for video in videos {
@@ -17,16 +21,46 @@ struct VideoView: View {
             }
         }
     }
+    
     var body: some View {
-        if models.count == 4 {
-            HStack(spacing: 0) {
-                VStack(spacing: 0) {
-                    PlayerContainerView(player: models[0].player, gravity: .aspectFill)
-                    PlayerContainerView(player: models[1].player, gravity: .aspectFill)
+        if selectedPlayerViewModel == nil {
+            if models.count == 4 {
+                HStack(spacing: 0) {
+                    VStack(spacing: 0) {
+                        PlayerContainerView(player: models[0].player, gravity: .aspectFill).matchedGeometryEffect(id: "0", in: animation).onTapGesture {
+                            withAnimation {
+                                selectedPlayerViewModel = models[0]
+                                selectedIndex = 0
+                            }
+                        }
+                        PlayerContainerView(player: models[1].player, gravity: .aspectFill).matchedGeometryEffect(id: "1", in: animation).onTapGesture {
+                            withAnimation {
+                                selectedPlayerViewModel = models[1]
+                                selectedIndex = 1
+                            }
+                        }
+                    }
+                    VStack(spacing: 0) {
+                        PlayerContainerView(player: models[2].player, gravity: .aspectFill).matchedGeometryEffect(id: "2", in: animation).onTapGesture {
+                            withAnimation {
+                                selectedPlayerViewModel = models[2]
+                                selectedIndex = 2
+                            }
+                        }
+                        PlayerContainerView(player: models[3].player, gravity: .aspectFill).matchedGeometryEffect(id: "3", in: animation).onTapGesture {
+                            withAnimation {
+                                selectedPlayerViewModel = models[3]
+                                selectedIndex = 3
+                            }
+                        }
+                    }
                 }
-                VStack(spacing: 0) {
-                    PlayerContainerView(player: models[2].player, gravity: .aspectFill)
-                    PlayerContainerView(player: models[3].player, gravity: .aspectFill)
+            }
+        } else {
+            PlayerContainerView(player: selectedPlayerViewModel!.player, gravity: .aspectFill).matchedGeometryEffect(id: "\(selectedIndex!)", in: animation).onTapGesture {
+                withAnimation {
+                    selectedPlayerViewModel = nil
+                    selectedIndex = nil
                 }
             }
         }
