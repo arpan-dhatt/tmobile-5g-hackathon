@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AmbulanceSelectorView: View {
-    @ObservedObject var ambulanceData: AmbulanceListDataSource
+    @ObservedObject var ambulanceData = AmbulanceListDataSource()
+    @State var text: String = ""
     
     var body: some View {
         ZStack{
@@ -19,24 +20,24 @@ struct AmbulanceSelectorView: View {
                 ScrollView(.vertical, showsIndicators: false){
                     HStack{
                         VStack{
-                            ForEach(0..<ambulanceData.items.count){ index in
+                            ForEach(Array(zip(ambulanceData.items.indices, ambulanceData.items)), id: \.0){ (index, item) in
                                 if(index%2 == 0){
-                                AmbulanceInfoCardView(name: ambulanceData.items[index].name, status: ambulanceData.items[index].going_to, estimatedArrival: ambulanceData.items[index].arriving_in, availibility: ambulanceData.items[index].going_to)
+                                    AmbulanceInfoCardView(name: ambulanceData.items[index].name, status: item.going_to, estimatedArrival: item.arriving_in, availibility: item.going_to)
                                 }
                             }
                         }
                         VStack{
-                            ForEach(0..<ambulanceData.items.count){ index in
+                            ForEach(Array(zip(ambulanceData.items.indices, ambulanceData.items)), id: \.0){ (index, item) in
                                 if(index%2 == 1){
-                                AmbulanceInfoCardView(name: ambulanceData.items[index].name, status: ambulanceData.items[index].going_to, estimatedArrival: ambulanceData.items[index].arriving_in, availibility: ambulanceData.items[index].going_to)
+                                    AmbulanceInfoCardView(name: ambulanceData.items[index].name, status: item.going_to, estimatedArrival: item.arriving_in, availibility: item.going_to)
                                 }
                             }
                         }
                     }
                 }
             }.padding()
-            }.onAppear{
-                ambulanceData.loadData()
+        }.onAppear{
+            ambulanceData.loadData()
         }
     }
 }
@@ -71,14 +72,14 @@ struct AmbulanceInfoCardView: View {
                     Circle().fill(Color.yellow).frame(width: 25)
                 }
             }
-            Text("En Route To"+status)
-            Text("Arriving In"+estimatedArrival)
+            Text("En Route To "+status)
+            Text("Arriving In "+estimatedArrival)
         }.padding().cornerRadius(10.0).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.black, lineWidth: 2)).padding()
     }
 }
 
 struct AmbulanceSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        AmbulanceSelectorView(ambulanceData: AmbulanceListDataSource())
+        AmbulanceSelectorView()
     }
 }
