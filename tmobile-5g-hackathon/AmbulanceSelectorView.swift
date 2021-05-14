@@ -13,8 +13,9 @@ struct AmbulanceSelectorView: View {
     
     var body: some View {
         ZStack{
+            
             VStack{
-                Text("Select Ambulance")
+                Text("Select Ambulance").font(.largeTitle).bold().padding(.vertical,50)
                 Divider()
                 
                 ScrollView(.vertical, showsIndicators: false){
@@ -35,7 +36,7 @@ struct AmbulanceSelectorView: View {
                         }
                     }
                 }
-            }.padding()
+            }.padding().background(Color.pink).cornerRadius(25.0).padding(50)
         }.onAppear{
             ambulanceData.loadData()
         }
@@ -58,23 +59,37 @@ struct AmbulanceInfoCardView: View {
     }
     
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             HStack{
-                Text("Ambulance"+name)
+                Text("Ambulance: "+name).font(.headline)
                 Spacer()
                 if status == "inactive"{
-                    Circle().fill(Color.red).frame(width: 25)
+                    Circle().fill(Color.red).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
                 }
                 else if status == "trauma center"{
-                    Circle().fill(Color.green).frame(width: 25)
+                    Circle().fill(Color.green).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
                 }
                 else{
-                    Circle().fill(Color.yellow).frame(width: 25)
+                    Circle().fill(Color.yellow).frame(width: 25, height: 25).overlay(Circle().stroke(Color.black, lineWidth: 1)).padding()
                 }
+            }.padding(.bottom, -15)
+            
+            
+                
+            
+            if status == "trauma center" {
+                Divider().background(Color.green)
             }
-            Text("En Route To "+status)
-            Text("Arriving In "+estimatedArrival)
-        }.padding().cornerRadius(10.0).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.black, lineWidth: 2)).padding()
+            else if status == "inactive" {
+                Divider().background(Color.red)
+            }
+            else {
+                Divider().background(Color.yellow)
+            }
+            
+            Text("En Route To: "+status).font(.headline).padding(.top, 10)
+            Text("Arriving In: "+estimatedArrival).font(.headline)
+        }.padding().padding(.horizontal).cornerRadius(10.0).frame(maxHeight: 250).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.black, lineWidth: 1)).padding()
     }
 }
 
