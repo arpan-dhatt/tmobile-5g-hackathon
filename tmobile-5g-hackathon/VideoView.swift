@@ -29,7 +29,6 @@ struct VideoView: View {
                     PlayerContainerView(player: models[3].player, gravity: .aspectFill)
                 }
             }
-            
         }
     }
 }
