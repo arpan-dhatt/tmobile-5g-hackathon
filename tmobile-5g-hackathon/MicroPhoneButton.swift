@@ -10,30 +10,31 @@ import SwiftUI
 struct MicroPhoneButton: View {
     @EnvironmentObject var viewModel: MainViewModel
     @ObservedObject var microphone = Microphone()
-//    @GestureState var isDetectingLongPress = false
-//    @State var status = "none"
-//
-//    var longPress: some Gesture {
-//        LongPressGesture().updating($isDetectingLongPress){currentState, gestureState,transaction in
-//            //microphone.startStreaming()
-//            gestureState = currentState
-//            transaction.animation = Animation.easeIn(duration: 2.0)
-//            status = "active"
-//        }.onEnded{ finished in
-//            //microphone.finishStreaming(success: true)
-//            status = "ended"
-//        }
-//    }
+    @State var pressed = false
+    @GestureState var isDetectingLongPress = false
+    @State var status = "none"
+
+    var longPress: some Gesture {
+        LongPressGesture().updating($isDetectingLongPress){currentState, gestureState,transaction in
+            microphone.startStreaming()
+            gestureState = currentState
+            status = "active"
+        }.onEnded{ finished in
+            microphone.finishStreaming(success: true)
+            status = "ended"
+        }
+    }
     
     var body: some View {
         ZStack{
-            Circle().fill(Color.red).frame(width: 100, height: 100, alignment: .center)
+            Circle().fill(Color.red).frame(width: 100, height: 100, alignment: .center).gesture(longPress)
             HStack{
-                
-                    Image(systemName: "waveform").frame(width: 75, height: 75)
-                
-                
-                    Image(systemName: "record.circle").frame(width: 75, height: 75)
+                if isDetectingLongPress{
+                    Image(systemName: "waveform").font(.largeTitle)
+                }
+                else{
+                    Image(systemName: "record.circle").font(.largeTitle)
+                }
                 
             }
         }
