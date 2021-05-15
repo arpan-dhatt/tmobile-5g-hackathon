@@ -54,7 +54,7 @@ class RealtimeDataSource: ObservableObject {
     }
     
     
-    @Published var transferred_files = [TransferredFile]()
+    @Published var transferred_files:[TransferredFile] = [.init(time_ms: 100, type: "EKG", images: [UIImage(named: "1")!]), .init(time_ms: 100, type: "EKG", images: [UIImage(named: "1")!])]
     
     var socketTask: URLSessionWebSocketTask?
     
