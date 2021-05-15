@@ -11,7 +11,7 @@ import SwiftUI
 // for styling this look at this: https://www.hackingwithswift.com/books/ios-swiftui/paths-vs-shapes-in-swiftui
 // strokes can also be gradients if you want them to be (like a left to right gradient with a fade on the left?)
 struct LineChartShape: Shape {
-    @Binding var data: [Double]
+    var data: [Double]
     private var maximum: Double {
         return data.max() ?? 0.0
     }
@@ -39,7 +39,7 @@ struct LineChartShape: Shape {
 
 struct LineChartShape_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartShape(data: .constant([-100, 100, 100, 100, -100, -50, 500, 750, -50, -10])).stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).frame(width: 500, height: 100, alignment: .center)
+        LineChartShape(data: [-100, 100, 100, 100, -100, -50, 500, 750, -50, -10]).stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).frame(width: 500, height: 100, alignment: .center)
     }
 }
 

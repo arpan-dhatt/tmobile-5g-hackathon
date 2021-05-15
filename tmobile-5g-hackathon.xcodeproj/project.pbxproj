@@ -26,6 +26,8 @@
 		78CF67D8264E2056009DFE03 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D7264E2056009DFE03 /* MainView.swift */; };
 		78CF67DA264E206C009DFE03 /* VitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67D9264E206C009DFE03 /* VitalsView.swift */; };
 		78CF67DC264E20A1009DFE03 /* TransferredFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */; };
+		78DEBFC3264F57E500CB3297 /* MJPEGStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DEBFC2264F57E500CB3297 /* MJPEGStreamer.swift */; };
+		78DEBFC5264F5A1500CB3297 /* MJPEGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DEBFC4264F5A1500CB3297 /* MJPEGView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		78CF67D7264E2056009DFE03 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78CF67D9264E206C009DFE03 /* VitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsView.swift; sourceTree = "<group>"; };
 		78CF67DB264E20A1009DFE03 /* TransferredFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferredFilesView.swift; sourceTree = "<group>"; };
+		78DEBFC2264F57E500CB3297 /* MJPEGStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJPEGStreamer.swift; sourceTree = "<group>"; };
+		78DEBFC4264F5A1500CB3297 /* MJPEGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJPEGView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		78CF67B2264DC1C2009DFE03 /* tmobile-5g-hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				78DEBFC1264F57C000CB3297 /* Motion JPEG */,
 				78CF67C7264DC85D009DFE03 /* Models */,
 				78CF67C2264DC7BA009DFE03 /* Network */,
 				78CF67B3264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift */,
@@ -128,6 +133,15 @@
 				4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		78DEBFC1264F57C000CB3297 /* Motion JPEG */ = {
+			isa = PBXGroup;
+			children = (
+				78DEBFC2264F57E500CB3297 /* MJPEGStreamer.swift */,
+				78DEBFC4264F5A1500CB3297 /* MJPEGView.swift */,
+			);
+			path = "Motion JPEG";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,12 +221,14 @@
 				78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */,
 				4F144EDE264F0DFE00CD3957 /* MainViewModel.swift in Sources */,
 				78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */,
+				78DEBFC3264F57E500CB3297 /* MJPEGStreamer.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
 				78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */,
 				78CF67CF264DDE94009DFE03 /* Microphone.swift in Sources */,
 				78CF67D2264E201D009DFE03 /* VideoView.swift in Sources */,
 				78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */,
 				7867C053264F1EEF000C3000 /* LineChartShape.swift in Sources */,
+				78DEBFC5264F5A1500CB3297 /* MJPEGView.swift in Sources */,
 				78CF67C6264DC83F009DFE03 /* AmbulanceListDataSource.swift in Sources */,
 				78CF67D6264E2035009DFE03 /* AmbulanceSelectorView.swift in Sources */,
 				78CF67DC264E20A1009DFE03 /* TransferredFilesView.swift in Sources */,

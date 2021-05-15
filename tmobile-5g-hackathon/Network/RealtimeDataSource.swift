@@ -8,46 +8,46 @@
 import SwiftUI
 
 class RealtimeDataSource: ObservableObject {
-    @Published var ekg_value_history = [DataPoint<Float>]()
-    var ekg_value: Float {
+    @Published var ekg_value_history = [Double]()
+    var ekg_value: Double {
         if let item = ekg_value_history.last {
-            return item.value
+            return item
         } else {
             return 0;
         }
     }
     
-    @Published var heart_rate_history = [DataPoint<Int>]()
-    var heart_rate: Int {
+    @Published var heart_rate_history = [Double]()
+    var heart_rate: Double {
         if let item = heart_rate_history.last {
-            return item.value
+            return item
         } else {
             return 0;
         }
     }
     
-    @Published var blood_oxygen_percent_history = [DataPoint<Int>]()
-    var blood_oxygen_percent: Int {
+    @Published var blood_oxygen_percent_history = [Double]()
+    var blood_oxygen_percent: Double {
         if let item = blood_oxygen_percent_history.last {
-            return item.value
+            return item
         } else {
             return 0;
         }
     }
     
-    @Published var diastolic_blood_pressure_history = [DataPoint<Int>]()
-    var diastolic_blood_pressure: Int {
+    @Published var diastolic_blood_pressure_history = [Double]()
+    var diastolic_blood_pressure: Double {
         if let item = diastolic_blood_pressure_history.last {
-            return item.value
+            return item
         } else {
             return 0;
         }
     }
     
-    @Published var systolic_blood_pressure_history = [DataPoint<Int>]()
-    var systolic_blood_pressure: Int {
+    @Published var systolic_blood_pressure_history = [Double]()
+    var systolic_blood_pressure: Double {
         if let item = systolic_blood_pressure_history.last {
-            return item.value
+            return item
         } else {
             return 0;
         }
@@ -110,11 +110,11 @@ class RealtimeDataSource: ObservableObject {
     }
     
     func VITALS_UPDATE_Handler(data: WS_VITALS_UPDATE) {
-        if let ekg_value = data.ekg_value { self.ekg_value_history.append(DataPoint(time_ms: data.time_ms, value: ekg_value)) }
-        if let heart_rate = data.heart_rate { self.heart_rate_history.append(DataPoint(time_ms: data.time_ms, value: heart_rate)) }
-        if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(DataPoint(time_ms: data.time_ms, value: blood_oxygen_percent)) }
-        if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: diastolic_blood_pressure)) }
-        if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(DataPoint(time_ms: data.time_ms, value: systolic_blood_pressure)) }
+        if let ekg_value = data.ekg_value { self.ekg_value_history.append(ekg_value) }
+        if let heart_rate = data.heart_rate { self.heart_rate_history.append(heart_rate) }
+        if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(blood_oxygen_percent) }
+        if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(diastolic_blood_pressure) }
+        if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(systolic_blood_pressure) }
     }
     
     func NEW_FILE_Handler(data: WS_NEW_FILE) {
@@ -139,11 +139,11 @@ class RealtimeDataSource: ObservableObject {
     
     func demoVitalsData() {
         for i in 0...20 {
-            ekg_value_history.append(DataPoint(time_ms: Int64(i), value: Float.random(in: -10...10)))
-            heart_rate_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 170...190)))
-            blood_oxygen_percent_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 95...100)))
-            diastolic_blood_pressure_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 130...160)))
-            systolic_blood_pressure_history.append(DataPoint(time_ms: Int64(i), value: Int.random(in: 60...90)))
+            ekg_value_history.append(Double.random(in: -10...10))
+            heart_rate_history.append(Double.random(in: 170...190))
+            blood_oxygen_percent_history.append(Double.random(in: 95...100))
+            diastolic_blood_pressure_history.append(Double.random(in: 130...160))
+            systolic_blood_pressure_history.append(Double.random(in: 60...90))
         }
     }
 }
