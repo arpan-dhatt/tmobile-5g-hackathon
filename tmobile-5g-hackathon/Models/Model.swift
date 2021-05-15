@@ -23,6 +23,7 @@ struct DataPoint<T> {
 }
 
 struct TransferredFile {
+    var id = UUID()
     var time_ms: Int64
     var type: String
     var images: [UIImage]
