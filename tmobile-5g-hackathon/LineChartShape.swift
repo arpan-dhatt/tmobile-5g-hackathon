@@ -12,12 +12,8 @@ import SwiftUI
 // strokes can also be gradients if you want them to be (like a left to right gradient with a fade on the left?)
 struct LineChartShape: Shape {
     var data: [Double]
-    private var maximum: Double {
-        return data.max() ?? 0.0
-    }
-    private var minimum: Double {
-        return data.min() ?? 0.0
-    }
+    var maximum: Double
+    var minimum: Double
     func path(in rect: CGRect) -> Path {
         var path = Path()
         if data.count >= 2 {
@@ -39,7 +35,7 @@ struct LineChartShape: Shape {
 
 struct LineChartShape_Previews: PreviewProvider {
     static var previews: some View {
-        LineChartShape(data: [-100, 100, 100, 100, -100, -50, 500, 750, -50, -10]).stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).frame(width: 500, height: 100, alignment: .center)
+        LineChartShape(data: [-100, 100, 100, 100, -100, -50, 500, 750, -50, -10], maximum: 500, minimum: -100).stroke(Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).frame(width: 500, height: 100, alignment: .center)
     }
 }
 

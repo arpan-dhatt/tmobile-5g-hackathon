@@ -87,6 +87,7 @@ class RealtimeDataSource: ObservableObject {
                     print("Non-text message received")
                 }
             }
+            self?.receive()
         }
     }
     
@@ -110,11 +111,29 @@ class RealtimeDataSource: ObservableObject {
     }
     
     func VITALS_UPDATE_Handler(data: WS_VITALS_UPDATE) {
-        if let ekg_value = data.ekg_value { self.ekg_value_history.append(ekg_value) }
-        if let heart_rate = data.heart_rate { self.heart_rate_history.append(heart_rate) }
-        if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(blood_oxygen_percent) }
-        if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(diastolic_blood_pressure) }
-        if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(systolic_blood_pressure) }
+        DispatchQueue.main.async {
+            if let ekg_value = data.ekg_value { self.ekg_value_history.append(ekg_value) }
+            if let heart_rate = data.heart_rate { self.heart_rate_history.append(heart_rate) }
+            if let blood_oxygen_percent = data.blood_oxygen_percent { self.blood_oxygen_percent_history.append(blood_oxygen_percent) }
+            if let diastolic_blood_pressure = data.diastolic_blood_pressure { self.diastolic_blood_pressure_history.append(diastolic_blood_pressure) }
+            if let systolic_blood_pressure = data.systolic_blood_pressure { self.systolic_blood_pressure_history.append(systolic_blood_pressure) }
+            let maxCount = 100;
+            if self.ekg_value_history.count > maxCount {
+                self.ekg_value_history.remove(at: 0)
+            }
+            if self.heart_rate_history.count > maxCount {
+                self.heart_rate_history.remove(at: 0)
+            }
+            if self.blood_oxygen_percent_history.count > maxCount {
+                self.blood_oxygen_percent_history.remove(at: 0)
+            }
+            if self.diastolic_blood_pressure_history.count > maxCount {
+                self.diastolic_blood_pressure_history.remove(at: 0)
+            }
+            if self.systolic_blood_pressure_history.count > maxCount {
+                self.systolic_blood_pressure_history.remove(at: 0)
+            }
+        }
     }
     
     func NEW_FILE_Handler(data: WS_NEW_FILE) {
