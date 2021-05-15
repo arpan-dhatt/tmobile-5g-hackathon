@@ -59,7 +59,7 @@ class RealtimeDataSource: ObservableObject {
     var socketTask: URLSessionWebSocketTask?
     
     func initializeConnection(ambulance_id: String) {
-        let url = NetConfig.WS_ROOT+"ambulance_id=\(ambulance_id)"
+        let url = NetConfig.WS_ROOT+"\(ambulance_id)"
         print(url)
         socketTask = URLSession.shared.webSocketTask(with: URL(string: url)!)
         
