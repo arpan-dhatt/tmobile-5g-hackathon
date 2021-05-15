@@ -15,49 +15,49 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            if selectedItem == nil {
-                HStack(spacing:0) {
-                    VStack(spacing:0) {
-                        Image("1").resizable().matchedGeometryEffect(id: "a", in: animation).onTapGesture {
-                            withAnimation {
-                                selectedItem = "1"
-                                selectedItemID = "a"
-                            }
-                        }
-                        Image("1").resizable().matchedGeometryEffect(id: "b", in: animation).onTapGesture {
-                            withAnimation {
-                                selectedItem = "1"
-                                selectedItemID = "b"
-                            }
-                        }
-                    }
-                    VStack(spacing:0) {
-                        Image("1").resizable().matchedGeometryEffect(id: "c", in: animation).onTapGesture {
-                            withAnimation {
-                                selectedItem = "1"
-                                selectedItemID = "c"
-                            }
-                        }
-                        Image("1").resizable().matchedGeometryEffect(id: "d", in: animation).onTapGesture {
-                            withAnimation {
-                                selectedItem = "1"
-                                selectedItemID = "d"
-                            }
-                        }
-                    }
-                }
-            } else {
-                Image("1").resizable().matchedGeometryEffect(id: selectedItemID!, in: animation).onTapGesture {
-                    withAnimation {
-                        selectedItem = nil
-                        selectedItemID = nil
-                    }
-                }
-            }
             if viewModel.currentAmbulance == nil {
                 AmbulanceSelectorView()
             }
             else {
+                if selectedItem == nil {
+                    HStack(spacing:0) {
+                        VStack(spacing:0) {
+                            Image("1").resizable().matchedGeometryEffect(id: "a", in: animation).onTapGesture {
+                                withAnimation {
+                                    selectedItem = "1"
+                                    selectedItemID = "a"
+                                }
+                            }
+                            Image("1").resizable().matchedGeometryEffect(id: "b", in: animation).onTapGesture {
+                                withAnimation {
+                                    selectedItem = "1"
+                                    selectedItemID = "b"
+                                }
+                            }
+                        }
+                        VStack(spacing:0) {
+                            Image("1").resizable().matchedGeometryEffect(id: "c", in: animation).onTapGesture {
+                                withAnimation {
+                                    selectedItem = "1"
+                                    selectedItemID = "c"
+                                }
+                            }
+                            Image("1").resizable().matchedGeometryEffect(id: "d", in: animation).onTapGesture {
+                                withAnimation {
+                                    selectedItem = "1"
+                                    selectedItemID = "d"
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    Image("1").resizable().matchedGeometryEffect(id: selectedItemID!, in: animation).onTapGesture {
+                        withAnimation {
+                            selectedItem = nil
+                            selectedItemID = nil
+                        }
+                    }
+                }
                 HStack {
                     VStack(alignment: .leading) {
                         AmbulanceSelectorButton().onTapGesture {
