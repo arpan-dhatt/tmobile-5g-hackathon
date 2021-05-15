@@ -14,10 +14,10 @@ struct VitalsView: View {
     var body: some View {
         HStack {
             VStack(spacing: 20) {
-                LineChartShape(data: dataSource.ekg_value_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.red]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center)
-                LineChartShape(data: dataSource.systolic_blood_pressure_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.yellow]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center).background(
-                    LineChartShape(data: dataSource.diastolic_blood_pressure_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.orange]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center))
-                LineChartShape(data: dataSource.ekg_value_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 33, alignment: .center)
+                LineChartShape(data: dataSource.ekg_value_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.red, Color.red]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center)
+                LineChartShape(data: dataSource.systolic_blood_pressure_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.yellow, Color.yellow]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center).background(
+                    LineChartShape(data: dataSource.diastolic_blood_pressure_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.orange, Color.orange]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 50, alignment: .center))
+                LineChartShape(data: dataSource.ekg_value_history).stroke(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.blue, Color.blue]), startPoint: .leading, endPoint: .trailing), style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)).frame(width: 200, height: 33, alignment: .center)
             }.padding(.trailing, 10)
             VStack(spacing: 40) {
                 // ekg / bpm
