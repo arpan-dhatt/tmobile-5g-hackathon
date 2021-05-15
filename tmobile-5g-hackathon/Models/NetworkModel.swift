@@ -29,8 +29,8 @@ struct WS_VITALS_UPDATE: Decodable {
     var ekg_value: Double?
     var heart_rate: Double?
     var blood_oxygen_percent: Double?
-    var diastolic_blood_pressure: Double?
-    var systolic_blood_pressure: Double?
+    var diatolic_blood_pressure: Double?
+    var sysstolic_blood_pressure: Double?
 }
 
 // WS /ambulance_data?ambulance_id=3342342342342423 NEW_FILE

@@ -17,14 +17,14 @@ struct ChartSheet: View {
     
     var body: some View {
         VStack{
-            LineView(data: realtimeData.ekg_value_history, title: "EKG Chart", legend: "", style: EKGStylr)
+            LineView(data: realtimeData.ekg_value_history, title: "EKG Chart", legend: "\(realtimeData.heart_rate) BPM", style: EKGStylr)
             HStack{
-            LineView(data: realtimeData.diastolic_blood_pressure_history, title: "Diastolic Blood Pressure", legend: "", style: BP1Stylr)
-            LineView(data: realtimeData.systolic_blood_pressure_history, title: "Systolic Blood Pressure", legend: "", style: BP2Stylr)
+                LineView(data: realtimeData.diastolic_blood_pressure_history, title: "Diastolic BP", legend: "\(realtimeData.diastolic_blood_pressure)", style: BP1Stylr)
+                LineView(data: realtimeData.systolic_blood_pressure_history, title: "Systolic BP", legend: "\(realtimeData.systolic_blood_pressure)", style: BP2Stylr)
             }
             
             
-            BarChartView(data: ChartData( points: realtimeData.blood_oxygen_percent_history), title: "Blood Oxygen Levels", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.large)
+            
         }.padding(50).onAppear(perform: {
            realtimeData.initializeConnection(ambulance_id: "1111")
         })

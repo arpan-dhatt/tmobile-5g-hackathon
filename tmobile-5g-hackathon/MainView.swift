@@ -77,7 +77,7 @@ struct MainView: View {
                         Spacer()
                         FileSelector(dataSource: RealtimeDataSource())
                     }
-                }.padding()
+                }.padding().padding([.top])
             }
         }.ignoresSafeArea()
     }
