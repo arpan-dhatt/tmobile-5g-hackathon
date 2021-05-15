@@ -11,33 +11,35 @@ struct MicroPhoneButton: View {
     @EnvironmentObject var viewModel: MainViewModel
     @ObservedObject var microphone = Microphone()
     @State var pressed = false
-    @GestureState var isDetectingLongPress = false
     @State var status = "none"
-
-    var longPress: some Gesture {
-        LongPressGesture().updating($isDetectingLongPress){currentState, gestureState,transaction in
-            microphone.startStreaming()
-            gestureState = currentState
-            status = "active"
-        }.onEnded{ finished in
-            microphone.finishStreaming(success: true)
-            status = "ended"
-        }
-    }
     
     var body: some View {
         ZStack{
-            Circle().fill(Color.red).frame(width: 100, height: 100, alignment: .center).gesture(longPress)
+            Circle().fill(pressed ? Color.red : Color.gray).frame(width: 100, height: 100, alignment: .center).scaleEffect(pressed ? 1.2 : 1.0)
             HStack{
-                if isDetectingLongPress{
-                    Image(systemName: "waveform").font(.largeTitle)
+                if pressed {
+                    Image(systemName: "waveform").font(Font.system(size: 60))
                 }
                 else{
-                    Image(systemName: "record.circle").font(.largeTitle)
+                    Image(systemName: "record.circle").font(Font.system(size: 40))
                 }
                 
             }
-        }
+        }.gesture(DragGesture(minimumDistance: 0).onChanged({ _ in
+            if status != "active" {
+                microphone.startStreaming()
+                withAnimation {
+                    pressed = true
+                }
+                status = "active"
+            }
+        }).onEnded({ _ in
+            microphone.finishStreaming(success: true)
+            withAnimation {
+                pressed = false
+            }
+            status = "ended"
+        }))
     }
 }
 
