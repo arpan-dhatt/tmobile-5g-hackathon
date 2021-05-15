@@ -10,7 +10,12 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var viewModel: MainViewModel
     @Namespace private var animation
-    private var streamers = [MJPEGStreamer]()
+    private var streamers = [
+        MJPEGStreamer(stream_url: URL(string: "ws://192.168.86.26:8000/client/1111")!),
+        MJPEGStreamer(stream_url: URL(string: "ws://192.168.86.26:8000/client/1112")!),
+        MJPEGStreamer(stream_url: URL(string: "ws://192.168.86.26:8000/client/1113")!),
+        MJPEGStreamer(stream_url: URL(string: "ws://192.168.86.26:8000/client/1114")!),
+    ]
     @State var selectedStreamer: MJPEGStreamer?
     @State var selectedStreamerIndex: Int?
     
@@ -20,17 +25,17 @@ struct MainView: View {
                 AmbulanceSelectorView()
             }
             else {
-                if selectedStreamer == nil && selectedStreamerIndex != nil{
+                if selectedStreamer == nil && selectedStreamerIndex == nil{
                     if streamers.count == 4 {
                         HStack(spacing: 0) {
                             VStack(spacing: 0) {
-                                MJPEGView(streamers[0]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(0)", in: animation).onTapGesture {
+                                MJPEGView(streamers[0]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(0)", in: animation).frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 2, alignment: .center).onTapGesture {
                                     withAnimation {
                                         selectedStreamer = streamers[0]
                                         selectedStreamerIndex = 0
                                     }
                                 }
-                                MJPEGView(streamers[1]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(1)", in: animation).onTapGesture {
+                                MJPEGView(streamers[1]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(1)", in: animation).frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 2, alignment: .center).onTapGesture {
                                     withAnimation {
                                         selectedStreamer = streamers[1]
                                         selectedStreamerIndex = 1
@@ -38,13 +43,13 @@ struct MainView: View {
                                 }
                             }
                             VStack(spacing: 0) {
-                                MJPEGView(streamers[2]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(2)", in: animation).onTapGesture {
+                                MJPEGView(streamers[2]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(2)", in: animation).frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 2, alignment: .center).onTapGesture {
                                     withAnimation {
                                         selectedStreamer = streamers[2]
                                         selectedStreamerIndex = 2
                                     }
                                 }
-                                MJPEGView(streamers[3]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(3)", in: animation).onTapGesture {
+                                MJPEGView(streamers[3]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(3)", in: animation).frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 2, alignment: .center).onTapGesture {
                                     withAnimation {
                                         selectedStreamer = streamers[3]
                                         selectedStreamerIndex = 3
@@ -54,7 +59,7 @@ struct MainView: View {
                         }
                     }
                 } else {
-                    MJPEGView(selectedStreamer!).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(selectedStreamerIndex)", in: animation).onTapGesture {
+                    MJPEGView(selectedStreamer!).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(selectedStreamerIndex ?? -1)", in: animation).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center).onTapGesture {
                         withAnimation {
                             selectedStreamer = nil
                             selectedStreamerIndex = nil

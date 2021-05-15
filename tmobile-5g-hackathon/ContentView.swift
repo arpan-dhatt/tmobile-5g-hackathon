@@ -15,7 +15,7 @@ struct ContentView: View {
 //            URL(string: "https://56cdb389b57ec.streamlock.net:1935/nps/faithful.stream/playlist.m3u8")!,
 //            URL(string: "https://56cdb389b57ec.streamlock.net:1935/nps/faithful.stream/playlist.m3u8")!,
 //        ]).ignoresSafeArea()
-//        MJPEGView(URL(string: "ws://47.38.139.217:8000/client/1111")!)
+//        MJPEGView(URL(string: "")!)
 //        VitalsView()
 //        FileEditor(file: .init(time_ms: 100, type: "EKG", images: [UIImage(named: "1")!]))
         MainView()

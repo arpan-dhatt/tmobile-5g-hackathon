@@ -28,6 +28,6 @@ struct MJPEGView: View {
 
 struct MJPEGView_Previews: PreviewProvider {
     static var previews: some View {
-        MJPEGView(URL(string: "ws://47.38.139.217:8000/ambulance_stream/1111/1")!)
+        MJPEGView(URL(string: "ws://192.168.86.26:8000/client/1111")!)
     }
 }
