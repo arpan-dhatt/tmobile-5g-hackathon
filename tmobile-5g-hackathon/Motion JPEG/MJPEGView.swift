@@ -15,6 +15,10 @@ struct MJPEGView: View {
         self.streamer = MJPEGStreamer(stream_url: stream_url)
     }
     
+    init(_ streamer: MJPEGStreamer) {
+        self.streamer = streamer
+    }
+    
     var body: some View {
         if let image = streamer.image {
             Image(uiImage: image).resizable()

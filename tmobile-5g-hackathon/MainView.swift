@@ -10,8 +10,9 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var viewModel: MainViewModel
     @Namespace private var animation
-    @State var selectedItem: String?
-    @State var selectedItemID: String?
+    private var streamers = [MJPEGStreamer]()
+    @State var selectedStreamer: MJPEGStreamer?
+    @State var selectedStreamerIndex: Int?
     
     var body: some View {
         ZStack {
@@ -19,42 +20,44 @@ struct MainView: View {
                 AmbulanceSelectorView()
             }
             else {
-                if selectedItem == nil {
-                    HStack(spacing:0) {
-                        VStack(spacing:0) {
-                            Image("1").resizable().matchedGeometryEffect(id: "a", in: animation).onTapGesture {
-                                withAnimation {
-                                    selectedItem = "1"
-                                    selectedItemID = "a"
+                if selectedStreamer == nil && selectedStreamerIndex != nil{
+                    if streamers.count == 4 {
+                        HStack(spacing: 0) {
+                            VStack(spacing: 0) {
+                                MJPEGView(streamers[0]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(0)", in: animation).onTapGesture {
+                                    withAnimation {
+                                        selectedStreamer = streamers[0]
+                                        selectedStreamerIndex = 0
+                                    }
+                                }
+                                MJPEGView(streamers[1]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(1)", in: animation).onTapGesture {
+                                    withAnimation {
+                                        selectedStreamer = streamers[1]
+                                        selectedStreamerIndex = 1
+                                    }
                                 }
                             }
-                            Image("1").resizable().matchedGeometryEffect(id: "b", in: animation).onTapGesture {
-                                withAnimation {
-                                    selectedItem = "1"
-                                    selectedItemID = "b"
+                            VStack(spacing: 0) {
+                                MJPEGView(streamers[2]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(2)", in: animation).onTapGesture {
+                                    withAnimation {
+                                        selectedStreamer = streamers[2]
+                                        selectedStreamerIndex = 2
+                                    }
                                 }
-                            }
-                        }
-                        VStack(spacing:0) {
-                            Image("1").resizable().matchedGeometryEffect(id: "c", in: animation).onTapGesture {
-                                withAnimation {
-                                    selectedItem = "1"
-                                    selectedItemID = "c"
-                                }
-                            }
-                            Image("1").resizable().matchedGeometryEffect(id: "d", in: animation).onTapGesture {
-                                withAnimation {
-                                    selectedItem = "1"
-                                    selectedItemID = "d"
+                                MJPEGView(streamers[3]).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(3)", in: animation).onTapGesture {
+                                    withAnimation {
+                                        selectedStreamer = streamers[3]
+                                        selectedStreamerIndex = 3
+                                    }
                                 }
                             }
                         }
                     }
                 } else {
-                    Image("1").resizable().matchedGeometryEffect(id: selectedItemID!, in: animation).onTapGesture {
+                    MJPEGView(selectedStreamer!).aspectRatio(contentMode: .fill).matchedGeometryEffect(id: "\(selectedStreamerIndex)", in: animation).onTapGesture {
                         withAnimation {
-                            selectedItem = nil
-                            selectedItemID = nil
+                            selectedStreamer = nil
+                            selectedStreamerIndex = nil
                         }
                     }
                 }

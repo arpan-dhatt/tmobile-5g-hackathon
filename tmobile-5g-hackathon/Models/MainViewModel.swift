@@ -12,5 +12,3 @@ class MainViewModel: ObservableObject {
     @Published var currentFile: TransferredFile? = nil
     @Published var showVitals = false
 }
-
-
