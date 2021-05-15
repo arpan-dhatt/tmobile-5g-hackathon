@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AmbulanceSelectorView: View {
-    @ObservedObject var ambulanceData = AmbulanceListDataSource()
+    @StateObject var ambulanceData = AmbulanceListDataSource()
     @EnvironmentObject var viewModel: MainViewModel
     @State var text: String = ""
     
@@ -37,16 +37,7 @@ struct AmbulanceSelectorView: View {
                         }
                     }
                 }
-                if viewModel.currentAmbulance != nil{
-                    Button(action: {}, label: {
-                        HStack{
-                            
-                            Text("Get Started").font(.title).foregroundColor(.white)
-                            
-                        }.padding().padding(.horizontal).background(Color.green).cornerRadius(10.0).padding(.bottom).padding()
-                    })
-                }
-            }.padding().background(Color.pink).cornerRadius(25.0).padding(50)
+            }.padding().background(Color.white).cornerRadius(25.0).padding(50)
         }.onAppear{
             ambulanceData.loadData()
         }
@@ -125,7 +116,9 @@ struct AmbulanceInfoCardView: View {
                 Text("Arriving In: "+estimatedArrival).font(.headline)
             }.padding().padding(.horizontal).cornerRadius(10.0).frame(maxHeight: 300).overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.black, lineWidth: 3)).padding().onTapGesture {
                 withAnimation{
-                    viewModel.currentAmbulance = ambulance
+                    withAnimation {
+                        viewModel.currentAmbulance = ambulance
+                    }
                 }
             }
         }

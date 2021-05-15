@@ -18,10 +18,10 @@ struct FileSelector: View {
     var body: some View {
         if expanded {
             HStack{
-                ScrollView(.horizontal){
+                ScrollView(.horizontal, showsIndicators: false){
                     HStack{
                     ForEach(dataSource.transferred_files, id: \.id){file in
-                        Image(uiImage: file.images[0]).resizable().scaledToFill().cornerRadius(10.0).onTapGesture{
+                        Image(uiImage: file.images[0]).resizable().scaledToFill().cornerRadius(25.0).onTapGesture{
                             selectedFile = file
                             withAnimation{
                                 showingSheet.toggle()
@@ -30,13 +30,13 @@ struct FileSelector: View {
                     }
                     }
                 }.matchedGeometryEffect(id: "pictures", in: animation)
-                Image(systemName: "chevron.right").font(.system(size: 50)).padding().frame(minHeight: 125).background(Color.green).cornerRadius(10.0).onTapGesture {
-                    withAnimation(.easeOut(duration: 2.0)){
+                Image(systemName: "chevron.right").font(.system(size: 50)).padding().frame(minHeight: 125).background(Color.white).cornerRadius(25.0).onTapGesture {
+                    withAnimation{
                         expanded.toggle()
                     }
                 }.matchedGeometryEffect(id: "arrow", in: animation)
                 
-            }.padding().frame(maxWidth: 450, maxHeight:150).background(Color.gray).cornerRadius(10.0).padding().sheet(isPresented: $showingSheet){
+            }.padding().frame(maxWidth: 450, maxHeight:150).background(Color.white).cornerRadius(25.0).padding().sheet(isPresented: $showingSheet){
                 FileEditor(file: selectedFile)
             }
         }
@@ -44,12 +44,12 @@ struct FileSelector: View {
             HStack{
                 EmptyView().matchedGeometryEffect(id: "pictures", in: animation)
                 Spacer()
-                Image(systemName: "chevron.left").font(.system(size: 50)).padding().frame(minHeight: 125).background(Color.green).cornerRadius(10.0).onTapGesture {
-                    withAnimation(.easeIn(duration: 2.0)){
+                Image(systemName: "chevron.left").font(.system(size: 50)).padding().frame(minHeight: 125).background(Color.white).cornerRadius(25.0).onTapGesture {
+                    withAnimation{
                         expanded.toggle()
                     }
                 }.matchedGeometryEffect(id: "arrow", in: animation)
-            }.padding().frame(maxWidth: 450, maxHeight:150).padding()
+            }.frame(maxWidth: 450, maxHeight:150)
         }
     }
 }

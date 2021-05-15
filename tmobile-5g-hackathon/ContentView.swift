@@ -17,7 +17,8 @@ struct ContentView: View {
 //        ]).ignoresSafeArea()
 //        MJPEGView(URL(string: "ws://47.38.139.217:8000/client/1111")!)
 //        VitalsView()
-        FileEditor(file: .init(time_ms: 100, type: "EKG", images: [UIImage(named: "1")!]))
+//        FileEditor(file: .init(time_ms: 100, type: "EKG", images: [UIImage(named: "1")!]))
+        MainView()
     }
 }
 

@@ -12,9 +12,9 @@ struct AmbulanceSelectorButton: View {
     var body: some View {
         HStack{
             Spacer()
-            Text(viewModel.currentAmbulance!.name)
+            Text(viewModel.currentAmbulance?.name ?? "")
             Spacer()
-        }.frame(minWidth: 200, maxHeight: 100).background(Color.red).padding()
+        }.frame(width: 200, height: 60).background(Color.white).cornerRadius(25.0)
     }
 }
 

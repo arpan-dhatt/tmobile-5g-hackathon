@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct VitalsView: View {
-    @ObservedObject private var dataSource = RealtimeDataSource()
+    @State var showLarge = false
+    @StateObject private var dataSource = RealtimeDataSource()
     
     var body: some View {
         HStack {
@@ -46,6 +47,11 @@ struct VitalsView: View {
                 }
             }.onAppear(perform: {
                 dataSource.initializeConnection(ambulance_id: "1111")
+            }).onTapGesture {
+                self.showLarge = true
+            }
+            .sheet(isPresented: self.$showLarge, content: {
+                ChartSheet(realtimeData: self.dataSource)
             })
         }
     }

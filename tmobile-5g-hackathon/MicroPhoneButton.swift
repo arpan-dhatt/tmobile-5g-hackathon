@@ -15,7 +15,7 @@ struct MicroPhoneButton: View {
     
     var body: some View {
         ZStack{
-            Circle().fill(pressed ? Color.red : Color.gray).frame(width: 100, height: 100, alignment: .center).scaleEffect(pressed ? 1.2 : 1.0)
+            Circle().fill(pressed ? Color.red : Color.white).frame(width: 100, height: 100, alignment: .center).scaleEffect(pressed ? 1.2 : 1.0)
             HStack{
                 if pressed {
                     Image(systemName: "waveform").font(Font.system(size: 60))
