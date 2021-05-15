@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4F144EDE264F0DFE00CD3957 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */; };
+		4F213816264F848800A05961 /* AmbulanceSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F213815264F848800A05961 /* AmbulanceSelectorButton.swift */; };
+		4F21381A264F8FEF00A05961 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4F213819264F8FEF00A05961 /* SwiftUICharts */; };
+		4F21381D264F900800A05961 /* ChartSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F21381C264F900800A05961 /* ChartSheet.swift */; };
 		4F26450E264F1F80002699C1 /* MicroPhoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F26450D264F1F80002699C1 /* MicroPhoneButton.swift */; };
 		4F59F4F4264F67B400847DBB /* FileSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F59F4F3264F67B400847DBB /* FileSelector.swift */; };
 		4F59F4F7264F6F4F00847DBB /* FileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F59F4F6264F6F4F00847DBB /* FileEditor.swift */; };
@@ -34,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		4F144EDD264F0DFE00CD3957 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		4F213815264F848800A05961 /* AmbulanceSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbulanceSelectorButton.swift; sourceTree = "<group>"; };
+		4F21381C264F900800A05961 /* ChartSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSheet.swift; sourceTree = "<group>"; };
 		4F26450D264F1F80002699C1 /* MicroPhoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroPhoneButton.swift; sourceTree = "<group>"; };
 		4F59F4F3264F67B400847DBB /* FileSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelector.swift; sourceTree = "<group>"; };
 		4F59F4F6264F6F4F00847DBB /* FileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileEditor.swift; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F21381A264F8FEF00A05961 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +114,8 @@
 				4F26450D264F1F80002699C1 /* MicroPhoneButton.swift */,
 				4F59F4F3264F67B400847DBB /* FileSelector.swift */,
 				4F59F4F6264F6F4F00847DBB /* FileEditor.swift */,
+				4F213815264F848800A05961 /* AmbulanceSelectorButton.swift */,
+				4F21381C264F900800A05961 /* ChartSheet.swift */,
 			);
 			path = "tmobile-5g-hackathon";
 			sourceTree = "<group>";
@@ -166,6 +174,9 @@
 			dependencies = (
 			);
 			name = "tmobile-5g-hackathon";
+			packageProductDependencies = (
+				4F213819264F8FEF00A05961 /* SwiftUICharts */,
+			);
 			productName = "tmobile-5g-hackathon";
 			productReference = 78CF67B0264DC1C2009DFE03 /* tmobile-5g-hackathon.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +204,9 @@
 				Base,
 			);
 			mainGroup = 78CF67A7264DC1C2009DFE03;
+			packageReferences = (
+				4F213818264F8FEF00A05961 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 78CF67B1264DC1C2009DFE03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -228,10 +242,12 @@
 				78CF67CD264DD293009DFE03 /* RealtimeDataSource.swift in Sources */,
 				4F144EDE264F0DFE00CD3957 /* MainViewModel.swift in Sources */,
 				78CF67D4264E202C009DFE03 /* SmallMapView.swift in Sources */,
+				4F213816264F848800A05961 /* AmbulanceSelectorButton.swift in Sources */,
 				78DEBFC3264F57E500CB3297 /* MJPEGStreamer.swift in Sources */,
 				78CF67C4264DC817009DFE03 /* NetConfig.swift in Sources */,
 				78CF67CB264DC8CA009DFE03 /* Model.swift in Sources */,
 				78CF67CF264DDE94009DFE03 /* Microphone.swift in Sources */,
+				4F21381D264F900800A05961 /* ChartSheet.swift in Sources */,
 				78CF67D2264E201D009DFE03 /* VideoView.swift in Sources */,
 				78CF67B4264DC1C2009DFE03 /* tmobile_5g_hackathonApp.swift in Sources */,
 				7867C053264F1EEF000C3000 /* LineChartShape.swift in Sources */,
@@ -428,6 +444,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F213818264F8FEF00A05961 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F213819264F8FEF00A05961 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F213818264F8FEF00A05961 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 78CF67A8264DC1C2009DFE03 /* Project object */;
 }
